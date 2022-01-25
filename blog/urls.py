@@ -10,7 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.users.urls')),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('login', include('rest_framework.urls')),
+    path('login/', include('rest_framework.urls')),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair_view'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh_view'),
 ]

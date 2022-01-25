@@ -3,6 +3,7 @@ from django.urls import path
 
 from apps.users.views import *
 from apps.posts.views import *
+from apps.comments.views import *
 
 router = DefaultRouter()
 router.register(
@@ -23,12 +24,17 @@ router.register(
 router.register(
     'video',
     PostVideoAPIView,
-    basename='post- video'
+    basename='post-video'
 )
 router.register(
     'tag',
     PostTagAPIView,
     basename='tags'
+)
+router.register(
+    'comment',
+    CommentAPIView,
+    basename='comments'
 )
 
 urlpatterns = [

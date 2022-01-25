@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from apps.posts.models import *
+from apps.comments.serializers import CommentSerializer
 
 
 class PostLikeSerializer(serializers.ModelSerializer):
@@ -40,8 +41,9 @@ class PostImageSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
 
     total_likes = serializers.SerializerMethodField()
-    video = PostVideoSerializer(read_only=True, many=True)
-    image = PostImageSerializer(read_only=True, many=True)
+    post_video = PostVideoSerializer(read_only=True, many=True)
+    post_image = PostImageSerializer(read_only=True, many=True)
+    comment_post = CommentSerializer(read_only=True, many=True)
     user = serializers.CharField(read_only=True)
 
     class Meta:
